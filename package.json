@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "serve": "gulp serve"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,8 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-sass": "^5.1.0",
     "sass": "^1.53.0"
+  },
+  "dependencies": {
+    "gulp-css-url-adjuster": "^0.2.3"
   }
 }

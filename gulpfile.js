@@ -7,6 +7,7 @@ const autoprefixer = require('gulp-autoprefixer')
 const concat = require('gulp-concat')
 const htmlmin = require('gulp-htmlmin')
 const sync = require('browser-sync').create()
+const urlAdjuster = require('gulp-css-url-adjuster')
 
 
 function html(){
@@ -14,9 +15,9 @@ function html(){
         .pipe(include({
             prefix: '@@'
         }))
-        .pipe(htmlmin({
-            collapseWhitespace: true
-        }))
+        // .pipe(htmlmin({
+        //     collapseWhitespace: true
+        // }))
         .pipe(dest('dist'))
 }
 
@@ -29,6 +30,16 @@ function scss(){
         .pipe(csso())
         .pipe(concat('style.css'))
         .pipe(dest('dist'))
+}
+
+function adjuster() {
+    return src('./src/scss/index.scss')
+        .pipe(urlAdjuster({
+            prepend: 'images',
+            append: '?version=1',
+        }))
+        .pipe(dest('index.css'));
+
 }
 
 function clear(){
@@ -45,4 +56,4 @@ function serve(){
 }
 
 exports.build = series(clear, scss, html)
-exports.serve = series(clear, scss, html, serve)
+exports.serve = series(clear, scss, html, adjuster, serve)
