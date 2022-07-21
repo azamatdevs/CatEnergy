@@ -1,11 +1,11 @@
 {
-  "name": "CatEnergy",
+  "name": "catenergy",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "gulp build",
-    "serve": "gulp serve"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --no-source-maps"
   },
   "repository": {
     "type": "git",
@@ -19,19 +19,6 @@
   },
   "homepage": "https://github.com/azamatdevs/CatEnergy#readme",
   "devDependencies": {
-    "browser-sync": "^2.27.10",
-    "del": "^6.1.1",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-cli": "^2.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-csso": "^4.0.1",
-    "gulp-file-include": "^2.3.0",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-sass": "^5.1.0",
     "sass": "^1.53.0"
-  },
-  "dependencies": {
-    "gulp-css-url-adjuster": "^0.2.3"
   }
 }
