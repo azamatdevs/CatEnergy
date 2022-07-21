@@ -10,7 +10,7 @@ const sync = require('browser-sync').create()
 
 
 function html(){
-    return src('src/**.html')
+    return src('./src/**.html')
         .pipe(include({
             prefix: '@@'
         }))
@@ -21,13 +21,13 @@ function html(){
 }
 
 function scss(){
-    return src('src/scss/*.scss')
+    return src('./src/scss/**.scss')
         .pipe(sass())
         .pipe(autoprefixer({
             browsers: ['last 2 versions']
         }))
         .pipe(csso())
-        .pipe(concat('index.css'))
+        .pipe(concat('style.css'))
         .pipe(dest('dist'))
 }
 
